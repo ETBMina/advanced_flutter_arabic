@@ -5,7 +5,7 @@ class MyApp extends StatefulWidget {
   const MyApp({super.key}); // default constructor
 */
   // named constructor
-  MyApp._internal(); // _ makes it private (To make it only one instance)
+  const MyApp._internal(); // _ makes it private (To make it only one instance)
 
   static final MyApp _instance =
       MyApp._internal(); // singleton or single instance
