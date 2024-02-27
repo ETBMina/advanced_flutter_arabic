@@ -18,7 +18,7 @@ class SliderViewObject {
 // login models
 class Customer {
   // Must be not null
-  int id;
+  String id;
   String name;
   int numOfNotifications;
 
@@ -26,7 +26,7 @@ class Customer {
 }
 
 class Contacts {
-  int phone;
+  String phone;
   String email;
   String link;
 
@@ -34,8 +34,9 @@ class Contacts {
 }
 
 class Authentication {
-  Customer customer;
-  Contacts contacts;
+  // For non primitive types, we use ? to avoid creating dumy objects for them in mappers, but we should take care of it
+  Customer? customer;
+  Contacts? contacts;
 
   Authentication(this.customer, this.contacts);
 }
