@@ -13,19 +13,18 @@ class DioFactory {
   Future<Dio> getDio() async {
     Dio dio = Dio();
 
-    int timeout = 60 * 1000; // 1 min timeout
     Map<String, String> headers = {
       CONTENT_TYPE: APPLICATION_JSON,
       ACCEPT: APPLICATION_JSON,
-      AUTHORIZATION: "SEND TOKEN HERE",
+      AUTHORIZATION: Constants.token,
       DEFAULT_LANGUAGE: "en" // todo get lang from app preference
     };
 
     dio.options = BaseOptions(
         baseUrl: Constants.baseUrl,
         headers: headers,
-        receiveTimeout: Duration(milliseconds: timeout),
-        sendTimeout: Duration(milliseconds: timeout));
+        receiveTimeout: const Duration(milliseconds: Constants.apiTimeout),
+        sendTimeout: const Duration(milliseconds: Constants.apiTimeout));
 
     if (!kReleaseMode) {
       // debug mode, so print app logs
